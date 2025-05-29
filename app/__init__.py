@@ -33,6 +33,11 @@ def connect_db():
 #-----------------------------------------------------------
 @app.get("/")
 def home():
+    client = connect_db()
+    result = client.execute("SELECT * FROM things")
+
+    print(result)
+
     return render_template("pages/home.jinja")
 
 
